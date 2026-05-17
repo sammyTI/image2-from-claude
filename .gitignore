@@ -1,0 +1,10 @@
+.DS_Store
+*.local
+.env
+.env.*
+node_modules/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+*.log
