@@ -65,9 +65,17 @@ Codex 経由で Image 2.0 を使うと、サブスク枠で実質コストゼロ
 - **リンク先URL**: CTA / 動画 / フォーム（未確定なら placeholder で OK）
 - **出力先**: デフォルト `lp-out/<slug>/`
 
-### Step 2: Codex MCP に投げる
+### Step 2: Codex MCP に投げる（2段階推奨）
 
 `mcp__codex__codex` を `sandbox: workspace-write` / `approval-policy: never` で呼ぶ。プロンプトテンプレは `references/invocation.md` 参照。
+
+**推奨フロー: ファーストビューだけ先行生成 → サイズゲート → 残りスライス＋HTML を生成**
+
+LPは通常6〜8スライス。全部まとめて生成して「全部HTMLフォールバック」だった、を避けるため `invocation.md` のテンプレD（事前検証フロー）を使う:
+
+1. **Phase 1**: 01-fv.png だけ Codex に投げて生成
+2. **Claude Code 側でサイズ確認**: 500KB以上なら gpt-image-2 由来確定、30〜100KBならフォールバック疑いで再投
+3. **Phase 2**: ゲート通過後に残りスライス（02-07）＋ HTML/CSS/JS を一気に生成
 
 要点:
 
@@ -76,6 +84,16 @@ Codex 経由で Image 2.0 を使うと、サブスク枠で実質コストゼロ
 → 参考デザインがあればそのトンマナを引き継ぐ（固定模写ではなく再構成）
 → Pillow / HTML→PNG レンダーは禁止（gpt-image-2 直接生成固定）
 → index.html はスマホ最大幅 430px の縦並びレイアウト、各スライスを順に表示
+
+### Step 2.5: 1枚目のサイズゲート
+
+`stat -f %z {output_dir}/assets/01-fv.png` で容量確認:
+
+| サイズ | 判定 | アクション |
+|--------|------|----------|
+| 500KB 以上 | gpt-image-2 由来確定 | Phase 2 へ進む |
+| 30〜100KB | HTMLフォールバック疑い | Phase 1 を修正プロンプトで再投 |
+| 10KB 未満 | 生成失敗 | エラー報告 |
 
 ### Step 3: 結果の引き取り
 

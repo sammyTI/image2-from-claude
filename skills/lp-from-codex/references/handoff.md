@@ -57,6 +57,29 @@ mcp__codex__codex(
 
 ### Claude Code 側の検証手順
 
+#### 事前検証フローを使う場合（推奨デフォルト）
+
+Phase 1（01-fv.png のみ生成）完了直後:
+
+1. `stat -f %z {output_dir}/assets/01-fv.png` でファイルサイズ取得
+2. 500KB以上 → ゲート通過 → Phase 2（残りスライス＋HTML組立）へ進む
+3. 30〜100KB → HTMLフォールバック疑い → `invocation.md` テンプレDの再投プロンプトで Phase 1 を再投
+4. 10KB未満 → エラー → ユーザーに報告して中断
+
+Phase 2 完了後:
+
+1. `index.html` の存在を Read で確認
+2. `assets/` 配下のスライス枚数が想定通りか
+3. 各PNGのファイルサイズが Image 2.0 由来か（>500KB目安、30〜100KB なら HTMLフォールバック）
+4. `preview/` のスクショがあれば内容を Read で表示確認
+5. `index.html` を grep して以下を確認:
+   - `width: min(100%, 430px)` 等のスマホ最大幅指定があるか
+   - 透明CTAボタンが存在するか（`position: absolute` + `opacity: 0` または背景なし）
+   - `alt` 属性がスライス画像に付いているか
+6. CSS / JS が分離されているか inline か確認
+
+#### 一括生成の場合
+
 1. `index.html` の存在を Read で確認
 2. `assets/` 配下のスライス枚数が想定通りか
 3. 各PNGのファイルサイズが Image 2.0 由来か（>500KB目安、30〜100KB なら HTMLフォールバック）

@@ -64,9 +64,17 @@ Codex 経由で Image 2.0 を使うと、サブスク枠で実質コストゼロ
 - **参考デザイン**: あればパス、なければ言葉でトーン指示
 - **出力先**: デフォルト `slides-out/<slug>/`
 
-### Step 2: Codex MCP に投げる
+### Step 2: Codex MCP に投げる（2段階推奨）
 
 `mcp__codex__codex` を `sandbox: workspace-write` / `approval-policy: never` で呼ぶ。プロンプトテンプレは `references/invocation.md` 参照。
+
+**推奨フロー: 1枚目だけ先行生成 → サイズゲート → 残りを生成**
+
+5枚以上のデッキでは `invocation.md` のテンプレD（事前検証フロー）を使う:
+
+1. **Phase 1**: 表紙1枚だけ Codex に投げて生成
+2. **Claude Code 側でサイズ確認**: 500KB以上なら gpt-image-2 由来確定、30〜100KBならフォールバック疑いで再投
+3. **Phase 2**: ゲート通過後に残りスライスを一気に生成
 
 要点:
 
@@ -74,6 +82,16 @@ Codex 経由で Image 2.0 を使うと、サブスク枠で実質コストゼロ
 → 全スライドで同じデザインシステム（配色・余白・タイポ）
 → Pillow / HTML→PNG レンダーは禁止（gpt-image-2 直接生成固定）
 → 表紙・本文・締め、の3パートでデッキ全体の起承転結を意識
+
+### Step 2.5: 1枚目のサイズゲート
+
+`stat -f %z {output_dir}/assets/01-cover.png` で容量確認:
+
+| サイズ | 判定 | アクション |
+|--------|------|----------|
+| 500KB 以上 | gpt-image-2 由来確定 | Phase 2 へ進む |
+| 30〜100KB | HTMLフォールバック疑い | Phase 1 を修正プロンプトで再投 |
+| 10KB 未満 | 生成失敗 | エラー報告 |
 
 ### Step 3: 結果の引き取り
 
