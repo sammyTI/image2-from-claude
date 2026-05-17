@@ -16,6 +16,40 @@ mcp__codex__codex
 `sandbox: read-only` だと Codex 側が画像を保存できない。
 `approval-policy: never` を入れないと、ユーザー承認待ちで止まる。
 
+## 画像とコーディングの境界（全テンプレ共通・必ず読む）
+
+LP は「画像で作るもの」と「コードで作るもの」を明確に分ける。
+Codex が抜け穴で SVG / CSS / canvas に逃げないよう、以下を全プロンプトの先頭に含める。
+
+### 画像で作る（gpt-image-2 で PNG 生成）
+
+各セクションスライス（FV / 証明 / ベネフィット / こんな人 / 流れ / 登壇者 / 最終CTA絵柄）の本体。
+ビジュアル・見出し文字・サブ文字・装飾・アイコン・イラストはすべて **画像内に焼き込む**。
+
+**厳禁**（これに違反したら全部やり直し）:
+- セクション本体の見出し・本文テキストを HTML / CSS / SVG / canvas で描くこと
+- インラインSVG（`<svg>` 要素）で文字や装飾を組み立てること
+- CSS background-image / linear-gradient / box-shadow だけでセクション本体を構成すること
+- Pillow / PIL / 任意の Python 画像ライブラリでテキスト合成
+- HTML→PNG レンダリング（puppeteer / playwright / wkhtmltopdf / Pageres 含む）
+
+### コードで作る（HTML / CSS 実装）
+
+- CTAボタン本体（`<a class="cta">予約する</a>` などクリック可能なリンク）
+- 画像の上に重ねる透明クリックエリア（`position: absolute; opacity: 0;`）
+- レイアウトラッパー（`width: min(100%, 430px);` の縦並びコンテナ）
+- スライス画像を読み込む `<img>` タグ（必ず `alt` 属性付き）
+- スクロール / フェードイン等の軽量JS（任意）
+
+つまり「セクションのビジュアル本体は焼き込み画像、機能（CTAリンク・レイアウト）はコード」が原則。
+
+### 完了報告で証跡を要求
+
+Codex の応答に必ず含めさせる:
+- 各PNGのファイルパス＋ファイルサイズ（KB単位、明示的に）
+- gpt-image-2 generated_images uuid（呼び出し証跡）
+- 「セクション本体を SVG / CSS / canvas で描いていないこと」の明示宣言
+
 ## プロンプトテンプレ A — 基本（構成と参考デザイン渡す）
 
 Claude Code 側のヒアリングで集めた値を埋めて投げる:
@@ -23,7 +57,20 @@ Claude Code 側のヒアリングで集めた値を埋めて投げる:
 ```text
 gpt-image-2 (Image 2.0) で 縦長スマホLP のセクション別スライス画像を {N}枚 生成し、
 HTML/CSS/JS で組み上げて1本のLPに仕上げてください。
-HTML→PNG レンダリング・Pillow 変換は禁止。すべて gpt-image-2 直接生成。
+
+【画像とコーディングの境界・厳守】
+
+セクション本体（FV / 証明 / ベネフィット 等）の見出し・本文・装飾は全て gpt-image-2 で生成した PNG に焼き込むこと。
+以下は厳禁:
+- セクション本体のテキスト・見出しを HTML/CSS/SVG/canvas で描くこと
+- インラインSVG・CSS background-image / gradient のみで構成すること
+- Pillow / PIL / HTML→PNG レンダリング（puppeteer / playwright 等）
+
+逆に以下は HTML/CSS で実装すること:
+- CTAボタン本体（クリック可能な `<a>` タグ）
+- 画像の上に重ねる透明クリックエリア
+- レイアウトラッパー（width: min(100%, 430px) 縦並び）
+- `<img>` タグでのスライス画像読み込み
 
 【LPの目的】
 {goal}（例: 無料LIVE予約 / LINE登録 / 商品購入 / 資料請求 / ウェビナー申込）
