@@ -1,0 +1,17 @@
+{
+  "name": "slides-from-codex",
+  "description": "Claude Code から Codex MCP 経由で gpt-image-2 (Image 2.0) を使い、横長16:9スライドを量産する薄いブリッジ。",
+  "version": "1.0.0",
+  "author": {
+    "name": "Sammy Okamura",
+    "url": "https://github.com/sammyTI"
+  },
+  "homepage": "https://github.com/sammyTI/image2-from-claude",
+  "keywords": [
+    "codex",
+    "image2",
+    "gpt-image-2",
+    "slides",
+    "carousel"
+  ]
+}

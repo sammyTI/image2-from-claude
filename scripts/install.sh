@@ -32,7 +32,7 @@ resolve_source() {
   # スクリプト自身の場所を取得（curl | bash の場合は失敗）
   local script_dir
   if script_dir="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd)" \
-     && [ -d "${script_dir}/../skills/lp-from-codex" ]; then
+     && [ -d "${script_dir}/../plugins/lp-from-codex/skills/lp-from-codex" ]; then
     SOURCE_MODE="local"
     SOURCE_DIR="$(cd "${script_dir}/.." && pwd)"
     ok "ローカル実行を検出: ${SOURCE_DIR}"
@@ -96,7 +96,7 @@ install_skills() {
   mkdir -p "${SKILLS_DEST}"
 
   for skill in "${SKILLS_TO_INSTALL[@]}"; do
-    local src="${SOURCE_DIR}/skills/${skill}"
+    local src="${SOURCE_DIR}/plugins/${skill}/skills/${skill}"
     local dst="${SKILLS_DEST}/${skill}"
 
     if [ ! -d "${src}" ]; then

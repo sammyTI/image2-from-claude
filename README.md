@@ -22,7 +22,19 @@ Claude Code を起動して、以下を実行:
 /plugin install slides-from-codex@image2-from-claude
 ```
 
-これで `~/.claude/skills/` に2スキルが配置され、すぐ使えます。
+これで2スキルが配置され、すぐ使えます。
+
+### SSH 認証エラーが出る場合
+
+```
+Error: SSH authentication failed
+```
+
+→ HTTPS URL を明示的に指定してください:
+
+```
+/plugin marketplace add https://github.com/sammyTI/image2-from-claude.git
+```
 
 ---
 
@@ -119,8 +131,8 @@ cd image2-from-claude
 または既存ディレクトリを `~/.claude/skills/` にコピーするだけでも動きます:
 
 ```bash
-cp -R skills/lp-from-codex ~/.claude/skills/
-cp -R skills/slides-from-codex ~/.claude/skills/
+cp -R plugins/lp-from-codex/skills/lp-from-codex ~/.claude/skills/
+cp -R plugins/slides-from-codex/skills/slides-from-codex ~/.claude/skills/
 ```
 
 ---

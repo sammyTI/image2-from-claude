@@ -1,0 +1,19 @@
+{
+  "name": "image2-from-claude",
+  "owner": {
+    "name": "Sammy Okamura",
+    "url": "https://github.com/sammyTI"
+  },
+  "plugins": [
+    {
+      "name": "lp-from-codex",
+      "source": "./plugins/lp-from-codex",
+      "description": "Claude Code から Codex MCP 経由で gpt-image-2 を呼び出し、縦長スマホLPを生成する薄いブリッジ。"
+    },
+    {
+      "name": "slides-from-codex",
+      "source": "./plugins/slides-from-codex",
+      "description": "Claude Code から Codex MCP 経由で gpt-image-2 を呼び出し、横長16:9スライドを量産する薄いブリッジ。"
+    }
+  ]
+}
