@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>image2-from-claude — Claude Code から Codex 経由で Image 2.0</title>
+  <meta name="description" content="Claude Code から Codex MCP 経由で gpt-image-2 (Image 2.0) を呼び、横長スライドも縦長スマホLPも量産する2スキル同梱キット。">
+  <meta property="og:title" content="image2-from-claude">
+  <meta property="og:description" content="Claude Code から Codex 経由で Image 2.0、スライドもLPもこれ1本。">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero__eyebrow">Claude Code Plugin / Marketplace</div>
+    <h1 class="hero__title">
+      <span>Claude Code</span> から <span>Codex</span> 経由で<br>
+      <span class="hl">Image 2.0</span>、スライドもLPもこれ1本。
+    </h1>
+    <p class="hero__sub">
+      ChatGPT サブスク枠で動く。API課金ゼロ。Claude Code を抜けない。<br>
+      横長16:9 のスライドデッキも、縦長スマホLPも、同じ仕組みで量産。
+    </p>
+    <div class="hero__cta">
+      <a href="#install" class="btn btn--primary">使い方を見る</a>
+      <a href="https://github.com/sammyTI/image2-from-claude" class="btn btn--ghost" target="_blank" rel="noopener">GitHub で見る</a>
+    </div>
+    <div class="hero__meta">
+      <span>2スキル同梱</span>
+      <span>·</span>
+      <span>MIT ライセンス</span>
+      <span>·</span>
+      <span>制作: 岡村さみー</span>
+    </div>
+  </div>
+</header>
+
+<section class="section section--why">
+  <div class="container">
+    <h2 class="section__title">なぜいま、これか</h2>
+    <div class="why">
+      <p class="why__lead">
+        Image 2.0 は使いたい。でも Codex に乗り換えるのは面倒。<br>
+        Claude Code の中で完結させたい。
+      </p>
+      <p class="why__body">
+        Codex を MCP として呼び出すと、Claude Code から出ずに Image 2.0 が使えます。
+        ChatGPT のサブスク枠で動くので、API課金は走りません。<br>
+        スライドもLPも、同じ仕組みでサクッと量産できる薄いブリッジを作りました。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--need">
+  <div class="container">
+    <h2 class="section__title">用意するもの、3つだけ</h2>
+    <div class="need-grid">
+      <div class="need-card">
+        <div class="need-card__num">1</div>
+        <div class="need-card__name">ChatGPT Plus / Pro</div>
+        <div class="need-card__body">Image 2.0 をサブスク枠で動かすため。API key 不要。</div>
+      </div>
+      <div class="need-card">
+        <div class="need-card__num">2</div>
+        <div class="need-card__name">Claude Code</div>
+        <div class="need-card__body">このキットの起動環境。すでに使っているはず。</div>
+      </div>
+      <div class="need-card">
+        <div class="need-card__num">3</div>
+        <div class="need-card__name">Codex CLI</div>
+        <div class="need-card__body">Image 2.0 を呼ぶための踏み台。<code>brew install openai/tap/codex</code></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--actors">
+  <div class="container">
+    <h2 class="section__title">2つの主役</h2>
+    <p class="section__sub">同じ仕組み、違う出力。どちらも単独で動きます。</p>
+
+    <div class="actors-grid">
+      <article class="actor-card">
+        <div class="actor-card__head">
+          <div class="actor-card__badge">縦長</div>
+          <h3 class="actor-card__name">lp-from-codex</h3>
+        </div>
+        <p class="actor-card__lead">スマホLPをセクション別スライスで生成</p>
+        <ul class="actor-card__bullets">
+          <li>FV / 証明 / ベネフィット / こんな人 / 流れ / 登壇者 / CTA</li>
+          <li>各スライス 1024×1536 PNG（gpt-image-2 直接生成）</li>
+          <li>HTML/CSS で組み上げて1本のLPに</li>
+          <li>透明CTAボタンを画像の上に重ねる構造</li>
+        </ul>
+        <div class="actor-card__cta">
+          <a href="#sample" class="btn btn--ghost btn--sm">サンプルを見る ↓</a>
+        </div>
+      </article>
+
+      <article class="actor-card">
+        <div class="actor-card__head">
+          <div class="actor-card__badge actor-card__badge--alt">横長 16:9</div>
+          <h3 class="actor-card__name">slides-from-codex</h3>
+        </div>
+        <p class="actor-card__lead">セミナー資料・カルーセル投稿を量産</p>
+        <ul class="actor-card__bullets">
+          <li>表紙 / アジェンダ / 本文 / 締め、5〜30枚</li>
+          <li>各スライド 1024×576 or 1792×1024 PNG</li>
+          <li>HTML ビューア組立（キーボード操作・全画面・PDF書出）</li>
+          <li>Instagram / X カルーセル用テンプレも同梱</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--install" id="install">
+  <div class="container">
+    <h2 class="section__title">インストール、30秒</h2>
+    <p class="section__sub">Claude Code を起動して、3行コピペするだけ。</p>
+
+    <div class="install-block">
+      <div class="install-block__step">
+        <div class="install-block__step-num">STEP 1</div>
+        <div class="install-block__step-text">マーケットプレイスを追加</div>
+        <div class="code-wrap">
+          <pre><code>/plugin marketplace add sammyTI/image2-from-claude</code></pre>
+          <button class="copy-btn" data-copy="/plugin marketplace add sammyTI/image2-from-claude">コピー</button>
+        </div>
+      </div>
+
+      <div class="install-block__step">
+        <div class="install-block__step-num">STEP 2</div>
+        <div class="install-block__step-text">2スキルをインストール</div>
+        <div class="code-wrap">
+          <pre><code>/plugin install lp-from-codex@image2-from-claude
+/plugin install slides-from-codex@image2-from-claude</code></pre>
+          <button class="copy-btn" data-copy="/plugin install lp-from-codex@image2-from-claude
+/plugin install slides-from-codex@image2-from-claude">コピー</button>
+        </div>
+      </div>
+
+      <div class="install-block__step">
+        <div class="install-block__step-num">STEP 3</div>
+        <div class="install-block__step-text">読み込み</div>
+        <div class="code-wrap">
+          <pre><code>/reload-plugins</code></pre>
+          <button class="copy-btn" data-copy="/reload-plugins">コピー</button>
+        </div>
+      </div>
+    </div>
+
+    <details class="install-troubleshoot">
+      <summary>SSH 認証エラーが出る場合</summary>
+      <p>HTTPS URL を明示的に指定してください:</p>
+      <div class="code-wrap">
+        <pre><code>/plugin marketplace add https://github.com/sammyTI/image2-from-claude.git</code></pre>
+        <button class="copy-btn" data-copy="/plugin marketplace add https://github.com/sammyTI/image2-from-claude.git">コピー</button>
+      </div>
+    </details>
+
+    <details class="install-troubleshoot">
+      <summary>Codex CLI が入っていない場合</summary>
+      <div class="code-wrap">
+        <pre><code>brew install openai/tap/codex
+codex login</code></pre>
+        <button class="copy-btn" data-copy="brew install openai/tap/codex
+codex login">コピー</button>
+      </div>
+      <p>npm 派は <code>npm install -g @openai/codex</code> でも可。</p>
+    </details>
+  </div>
+</section>
+
+<section class="section section--sample" id="sample">
+  <div class="container">
+    <h2 class="section__title">作例</h2>
+    <p class="section__sub">実際に lp-from-codex で生成したスマホLP。架空ブランド「あゆね」のスキンケアトライアル申込LP。</p>
+
+    <div class="sample-grid">
+      <a class="sample-card" href="./samples/ayune-skincare/index.html" target="_blank" rel="noopener">
+        <div class="sample-card__thumb">
+          <img src="./samples/ayune-skincare/assets/01-fv.png" alt="あゆね スキンケアLPのファーストビュー">
+        </div>
+        <div class="sample-card__body">
+          <h3 class="sample-card__title">あゆね — スキンケアトライアル</h3>
+          <p class="sample-card__meta">縦長スマホLP / 7セクション / 1024×1536 PNG</p>
+          <span class="sample-card__cta">実物を見る →</span>
+        </div>
+      </a>
+    </div>
+
+    <details class="sample-details">
+      <summary>スライス画像（7枚）を全部見る</summary>
+      <div class="sample-slices">
+        <img src="./samples/ayune-skincare/assets/01-fv.png" alt="01 FV" loading="lazy">
+        <img src="./samples/ayune-skincare/assets/02-proof.png" alt="02 証明" loading="lazy">
+        <img src="./samples/ayune-skincare/assets/03-benefit.png" alt="03 ベネフィット" loading="lazy">
+        <img src="./samples/ayune-skincare/assets/04-target.png" alt="04 こんな人" loading="lazy">
+        <img src="./samples/ayune-skincare/assets/05-flow.png" alt="05 流れ" loading="lazy">
+        <img src="./samples/ayune-skincare/assets/06-ingredient.png" alt="06 成分" loading="lazy">
+        <img src="./samples/ayune-skincare/assets/07-cta.png" alt="07 CTA" loading="lazy">
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section section--how">
+  <div class="container">
+    <h2 class="section__title">使い方</h2>
+    <p class="section__sub">話しかけるだけ。ヒアリングは Claude Code 側で進みます。</p>
+
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-card__keyword">「LP作って」</div>
+        <div class="how-card__arrow">→</div>
+        <div class="how-card__skill">lp-from-codex 起動</div>
+      </div>
+      <div class="how-card">
+        <div class="how-card__keyword">「スライド作って」</div>
+        <div class="how-card__arrow">→</div>
+        <div class="how-card__skill">slides-from-codex 起動</div>
+      </div>
+      <div class="how-card">
+        <div class="how-card__keyword">「カルーセル作って」</div>
+        <div class="how-card__arrow">→</div>
+        <div class="how-card__skill">slides-from-codex（カルーセル）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gotcha">
+  <div class="container">
+    <h2 class="section__title">よくあるつまずき</h2>
+    <table class="gotcha-table">
+      <tbody>
+        <tr><td><code>mcp__codex__codex</code> が見えない</td><td>Claude Code を再起動。<code>.mcp.json</code> の <code>codex</code> エントリ確認。</td></tr>
+        <tr><td>画像生成で API 課金が走る</td><td><code>codex login</code> で ChatGPT アカウントを選び直す。</td></tr>
+        <tr><td>Image 2.0 がレートリミット</td><td>サブスク枠の上限。少し時間を置く。</td></tr>
+        <tr><td>生成画像が 30〜100KB しかない</td><td>HTMLフォールバック疑い。本ツールは1枚目のサイズゲートで自動検知して再投します。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer__title">image2-from-claude</p>
+    <p class="footer__by">制作: 岡村さみー</p>
+    <ul class="footer__links">
+      <li><a href="https://github.com/sammyTI/image2-from-claude" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://x.com/sammyTI" target="_blank" rel="noopener">X</a></li>
+      <li><a href="https://note.com/bold_daisy957" target="_blank" rel="noopener">note</a></li>
+      <li><a href="https://substack.com/@dxai1" target="_blank" rel="noopener">Substack</a></li>
+    </ul>
+    <p class="footer__copy">© 2026 Sammy Okamura. MIT License.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const text = btn.dataset.copy;
+    try {
+      await navigator.clipboard.writeText(text);
+      const original = btn.textContent;
+      btn.textContent = 'コピー済み';
+      btn.classList.add('copy-btn--done');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copy-btn--done');
+      }, 1600);
+    } catch (e) {
+      btn.textContent = 'コピー失敗';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

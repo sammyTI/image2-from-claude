@@ -1,0 +1,168 @@
+:root {
+  --ivory: #FFF8F0;
+  --white: #FFFFFF;
+  --coral: #E94B6F;
+  --gold: #C9A961;
+  --marker: #FFF38C;
+  --red: #E60012;
+  --black: #1F1A1A;
+  --line: rgba(201, 169, 97, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ivory);
+}
+
+body {
+  margin: 0;
+  color: var(--black);
+  background:
+    radial-gradient(circle at top, rgba(233, 75, 111, 0.14), transparent 34rem),
+    var(--ivory);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+}
+
+.lp-shell {
+  width: min(100%, 430px);
+  margin: 0 auto;
+  background: var(--ivory);
+  overflow-x: hidden;
+  box-shadow: 0 0 0 1px rgba(233, 75, 111, 0.14), 0 20px 60px rgba(31, 26, 26, 0.14);
+}
+
+.slice {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  background: var(--white);
+}
+
+.slice img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-cta {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  z-index: 2;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.image-cta:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+.image-cta-fv {
+  bottom: 8%;
+  height: 7.2%;
+}
+
+.image-cta-final {
+  top: 60%;
+  height: 7.5%;
+}
+
+.sample-form {
+  padding: 58px 24px 66px;
+  border-top: 3px solid var(--gold);
+  background:
+    linear-gradient(180deg, rgba(255, 243, 140, 0.38), transparent 42%),
+    var(--ivory);
+}
+
+.form-kicker {
+  margin: 0 0 12px;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.sample-form h1 {
+  margin: 0;
+  color: var(--black);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "游明朝", serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.45;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: var(--marker);
+  text-decoration-thickness: 0.45em;
+  text-underline-offset: -0.18em;
+  text-decoration-skip-ink: none;
+}
+
+.form-copy {
+  margin: 14px auto 28px;
+  max-width: 22em;
+  color: rgba(31, 26, 26, 0.78);
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+form {
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin: 0 0 8px;
+  color: rgba(31, 26, 26, 0.78);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+input,
+button {
+  min-height: 52px;
+  border-radius: 10px;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  border: 2px solid rgba(201, 169, 97, 0.72);
+  padding: 0 13px;
+  color: var(--black);
+  background: var(--white);
+}
+
+button {
+  border: 0;
+  padding: 0 22px;
+  color: #fff;
+  background: var(--coral);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #B72E4B;
+}
+
+@media (max-width: 360px) {
+  .sample-form {
+    padding-inline: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
