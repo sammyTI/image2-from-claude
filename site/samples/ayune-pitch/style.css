@@ -26,6 +26,7 @@ html, body {
 }
 
 .stage {
+  position: relative;
   width: min(96vw, calc(96vh * 16 / 9));
   aspect-ratio: 16 / 9;
   background: var(--ivory);
