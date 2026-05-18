@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
   <title>image2-from-claude — Claude Code から Codex 経由で Image 2.0</title>
   <meta name="description" content="Claude Code から Codex MCP 経由で gpt-image-2 (Image 2.0) を呼び、横長スライドも縦長スマホLPも量産する2スキル同梱キット。">
   <meta property="og:title" content="image2-from-claude">
@@ -17,83 +18,16 @@
 </head>
 <body>
 
-<!-- ─── HERO (Dark) ──────────────────────────── -->
+<!-- ─── HERO (Image-based) ──────────────────── -->
 <header class="hero">
-  <div class="hero__bg" aria-hidden="true">
-    <div class="hero__glow hero__glow--g"></div>
-    <div class="hero__glow hero__glow--y"></div>
-    <div class="hero__grid"></div>
-  </div>
+  <img src="./assets/hero-pc.png" alt="Claude Code から指示するだけで、LP もスライドも自動生成。ChatGPT サブスク内で動くから API 課金ゼロ。" class="hero__img hero__img--pc">
+  <img src="./assets/hero-sp.png" alt="" class="hero__img hero__img--sp" aria-hidden="true">
 
-  <div class="wrap hero__layout">
-    <div class="hero__text">
-      <div class="hero__badge-row">
-        <span class="hero__pill">CLAUDE CODE PLUGIN MARKETPLACE</span>
-        <span class="hero__badge">2スキル<br>同梱</span>
-      </div>
-
-      <div class="hero__eyebrow-line">隠された Codex の完全活用</div>
-
-      <h1 class="hero__title">
-        <span class="hero__title-row">
-          <span class="hero__title-jp">Claude Code</span>
-          <span class="hero__title-x">から</span>
-        </span>
-        <span class="hero__title-row">
-          <span class="hero__title-jp">Codex 経由で</span>
-        </span>
-        <span class="hero__title-row hero__title-row--hl">
-          <span class="hero__title-jp">Image 2.0</span>
-          <span class="hero__title-x">を呼ぶ</span>
-        </span>
-      </h1>
-
-      <p class="hero__sub">
-        横長スライドも、縦長スマホLPも、Claude Code を抜けずに量産。<br>
-        ChatGPT サブスク枠で動くから API 課金はゼロ。
-      </p>
-
-      <ul class="hero__benefits">
-        <li class="hero__benefit">
-          <span class="hero__benefit-num">1</span>
-          <span class="hero__benefit-text">API 課金ゼロでスライド量産</span>
-        </li>
-        <li class="hero__benefit">
-          <span class="hero__benefit-num">2</span>
-          <span class="hero__benefit-text">PC を抜けずに Image 2.0 を実行</span>
-        </li>
-        <li class="hero__benefit">
-          <span class="hero__benefit-num">3</span>
-          <span class="hero__benefit-text">高品質 LP / デッキを一撃生成</span>
-        </li>
-      </ul>
-
-      <div class="hero__actions">
-        <a href="#install" class="btn">30秒で使い始める</a>
-        <a href="https://github.com/sammyTI/image2-from-claude" class="btn btn--ghost-dark" target="_blank" rel="noopener">GitHub で見る</a>
-      </div>
-    </div>
-
-    <div class="hero__visual" aria-hidden="true">
-      <!-- スライド3枚を扇形に重ねる（奥から順） -->
-      <div class="slide-stack">
-        <div class="slide-stack__item slide-stack__item--back">
-          <img src="./samples/ayune-pitch/assets/06-track-record.png" alt="">
-        </div>
-        <div class="slide-stack__item slide-stack__item--mid">
-          <img src="./samples/ayune-pitch/assets/03-product.png" alt="">
-        </div>
-        <div class="slide-stack__item slide-stack__item--front">
-          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="">
-        </div>
-      </div>
-
-      <!-- スマホLP モック・最前面 -->
-      <div class="phone-mock">
-        <div class="phone-mock__notch"></div>
-        <div class="phone-mock__screen">
-          <img src="./samples/ayune-skincare/assets/01-fv.png" alt="" class="phone-mock__img">
-        </div>
+  <div class="hero__overlay">
+    <div class="wrap">
+      <div class="hero__cta-area">
+        <a href="#install" class="btn">使い方を見る</a>
+        <a href="https://github.com/sammyTI/image2-from-claude" class="btn btn--outline" target="_blank" rel="noopener">GitHub で見る</a>
       </div>
     </div>
   </div>
@@ -103,7 +37,7 @@
 <section class="section">
   <div class="wrap">
     <div class="section__eyebrow">WHAT YOU NEED</div>
-    <h2 class="section__title">用意するもの、3つだけ</h2>
+    <h2 class="section__title">必要なもの</h2>
 
     <div class="need">
       <div class="need__item">
@@ -129,10 +63,10 @@
 <section class="section section--dark" id="install">
   <div class="wrap">
     <div class="section__eyebrow">INSTALL</div>
-    <h2 class="section__title">インストール、30秒</h2>
+    <h2 class="section__title">インストール</h2>
     <p class="section__lead">
-      Claude Code を起動して、3行コピペするだけ。<br>
-      話しかけるだけで「LP作って」「スライド作って」で起動します。
+      Claude Code を起動して、以下のコマンドを順に実行してください。<br>
+      その後「LP作って」「スライド作って」と話しかけるとスキルが起動します。
     </p>
 
     <div class="install-card">
@@ -188,10 +122,9 @@ codex login</pre>
 <section class="section">
   <div class="wrap">
     <div class="section__eyebrow">EXAMPLE</div>
-    <h2 class="section__title">このキットで、こんなLPが作れる</h2>
+    <h2 class="section__title">作例</h2>
     <p class="section__lead">
-      実際に lp-from-codex で生成したスマホLP。
-      架空ブランド「あゆね」のスキンケアトライアル申込LP。<br>
+      実際に lp-from-codex / slides-from-codex で生成した成果物。<br>
       <span class="hint">クリックでポップアップ表示・スクロール可能</span>
     </p>
 
@@ -225,10 +158,9 @@ codex login</pre>
 <section class="section section--summary">
   <div class="wrap wrap--narrow">
     <div class="section__eyebrow">SUMMARY</div>
-    <h2 class="section__title">まずは、スキル版でOK</h2>
+    <h2 class="section__title">使い方</h2>
     <p class="summary__lead">
-      何度も使うなら、スキル版を入れておくのがいちばん早い。<br>
-      話しかけるだけで起動するし、ヒアリング → 生成 → 引き取りまで自動で進む。
+      話しかけるだけで起動します。ヒアリングから生成まで自動で進みます。
     </p>
 
     <div class="how">
