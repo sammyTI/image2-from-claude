@@ -19,19 +19,43 @@
 
 <!-- ─── HERO ─────────────────────────────────── -->
 <header class="hero">
-  <div class="wrap">
-    <div class="hero__eyebrow">CLAUDE CODE PLUGIN MARKETPLACE</div>
-    <h1 class="hero__title">
-      Claude Code から Codex 経由で<br>
-      <span class="mono">Image 2.0</span> を呼ぶ。
-    </h1>
-    <p class="hero__sub">
-      横長スライドも、縦長スマホLPも、Claude Code を抜けずに量産。<br>
-      ChatGPT サブスク枠で動くから API 課金はゼロ。
-    </p>
-    <div class="hero__actions">
-      <a href="#install" class="btn">使い方を選ぶ</a>
-      <a href="https://github.com/sammyTI/image2-from-claude" class="btn btn--outline" target="_blank" rel="noopener">GitHub で見る</a>
+  <div class="wrap hero__layout">
+    <div class="hero__text">
+      <div class="hero__eyebrow">CLAUDE CODE PLUGIN MARKETPLACE</div>
+      <h1 class="hero__title">
+        Claude Code から Codex 経由で<br>
+        <span class="mono">Image 2.0</span> を呼ぶ。
+      </h1>
+      <p class="hero__sub">
+        横長スライドも、縦長スマホLPも、<br>
+        Claude Code を抜けずに量産。<br>
+        ChatGPT サブスク枠で動くから API 課金はゼロ。
+      </p>
+      <div class="hero__actions">
+        <a href="#install" class="btn">使い方を見る</a>
+        <a href="https://github.com/sammyTI/image2-from-claude" class="btn btn--outline" target="_blank" rel="noopener">GitHub で見る</a>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <!-- スライド（横長16:9）背面・奥にずらして配置 -->
+      <div class="slide-mock">
+        <div class="slide-mock__frame">
+          <img src="./samples/intro-deck/01-cover.png" alt="" class="slide-mock__img" onerror="this.style.display='none'; this.parentElement.classList.add('slide-mock__frame--empty');">
+          <div class="slide-mock__placeholder">
+            <span class="slide-mock__placeholder-label">横長16:9 スライド</span>
+            <span class="slide-mock__placeholder-hint">slides-from-codex</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- スマホLPモック（縦長）前面・メイン -->
+      <div class="phone-mock">
+        <div class="phone-mock__notch"></div>
+        <div class="phone-mock__screen">
+          <img src="./samples/ayune-skincare/assets/01-fv.png" alt="" class="phone-mock__img">
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -62,121 +86,61 @@
   </div>
 </section>
 
-<!-- ─── CHOOSE ───────────────────────────────── -->
+<!-- ─── INSTALL ──────────────────────────────── -->
 <section class="section section--dark" id="install">
   <div class="wrap">
-    <div class="section__eyebrow">CHOOSE</div>
-    <h2 class="section__title">使い方を選ぶ</h2>
+    <div class="section__eyebrow">INSTALL</div>
+    <h2 class="section__title">インストール、30秒</h2>
     <p class="section__lead">
-      プロンプト版（インストール不要・コピペで動く）と、<br>
-      スキル版（Claude Code に常駐させて何度も使う）の2通り。
+      Claude Code を起動して、3行コピペするだけ。<br>
+      話しかけるだけで「LP作って」「スライド作って」で起動します。
     </p>
 
-    <div class="choose">
-      <!-- プロンプト版 -->
-      <div class="choose__card">
-        <div class="choose__head">
-          <div class="choose__tag">A</div>
-          <h3 class="choose__title">プロンプト版</h3>
-          <div class="choose__hint">インストール不要</div>
-        </div>
-        <p class="choose__desc">
-          Claude Code のチャットに直接コピペするだけ。試したい人・1回だけの人向け。
-        </p>
-
-        <div class="prompt-block">
-          <div class="prompt-block__label">スマホLP（縦長）</div>
-          <div class="code">
-            <pre id="prompt-lp">あなたは lp-from-codex というスキルとして振る舞ってください。
-Codex MCP（mcp__codex__codex）を呼んで、gpt-image-2 で
-縦長スマホLP のセクション別スライス画像（1024×1536 PNG）と HTML を生成してください。
-
-【厳守】
-- セクション本体のテキスト・装飾は画像に焼き込み（SVG/CSS/canvas/HTML 描画禁止）
-- CTAボタン・レイアウトラッパー・透明クリックエリアは HTML/CSS で実装
-- まず 01-fv.png だけ先に生成して、500KB 以上か確認してから残りを生成
-- Pillow / HTML→PNG レンダリング禁止
-
-ヒアリングから始めてください: LPの目的・ターゲット・参考デザイン・セクション構成・コピー</pre>
-            <button class="copy-btn" data-copy-target="prompt-lp">コピー</button>
-          </div>
-        </div>
-
-        <div class="prompt-block">
-          <div class="prompt-block__label">スライド（横長16:9）</div>
-          <div class="code">
-            <pre id="prompt-slides">あなたは slides-from-codex というスキルとして振る舞ってください。
-Codex MCP（mcp__codex__codex）を呼んで、gpt-image-2 で
-横長16:9スライド（1024×576 PNG）を{N}枚生成してください。
-
-【厳守】
-- 各スライドのテキスト・装飾は画像に焼き込み（SVG/CSS/canvas 描画禁止）
-- まず 01-cover.png だけ先に生成して、500KB 以上か確認してから残りを生成
-- Pillow / HTML→PNG レンダリング禁止
-- 全スライド同じデザインシステム（配色・余白・タイポ）
-
-ヒアリング: デッキの目的・ターゲット・トーン・枚数・各スライドのコピー</pre>
-            <button class="copy-btn" data-copy-target="prompt-slides">コピー</button>
-          </div>
+    <div class="install-card">
+      <div class="install-step">
+        <div class="install-step__num">STEP 01</div>
+        <div class="install-step__label">マーケットプレイス追加</div>
+        <div class="code">
+          <pre id="cmd-1">/plugin marketplace add sammyTI/image2-from-claude</pre>
+          <button class="copy-btn" data-copy-target="cmd-1">コピー</button>
         </div>
       </div>
 
-      <!-- スキル版 -->
-      <div class="choose__card">
-        <div class="choose__head">
-          <div class="choose__tag">B</div>
-          <h3 class="choose__title">スキル版</h3>
-          <div class="choose__hint">何度も使うなら</div>
-        </div>
-        <p class="choose__desc">
-          Claude Code にプラグインとして登録。「LP作って」「スライド作って」で起動できる。
-        </p>
-
-        <div class="install-step">
-          <div class="install-step__num">STEP 01</div>
-          <div class="install-step__label">マーケットプレイス追加</div>
-          <div class="code">
-            <pre id="cmd-1">/plugin marketplace add sammyTI/image2-from-claude</pre>
-            <button class="copy-btn" data-copy-target="cmd-1">コピー</button>
-          </div>
-        </div>
-
-        <div class="install-step">
-          <div class="install-step__num">STEP 02</div>
-          <div class="install-step__label">2スキルをインストール</div>
-          <div class="code">
-            <pre id="cmd-2">/plugin install lp-from-codex@image2-from-claude
+      <div class="install-step">
+        <div class="install-step__num">STEP 02</div>
+        <div class="install-step__label">2スキルをインストール</div>
+        <div class="code">
+          <pre id="cmd-2">/plugin install lp-from-codex@image2-from-claude
 /plugin install slides-from-codex@image2-from-claude</pre>
-            <button class="copy-btn" data-copy-target="cmd-2">コピー</button>
-          </div>
+          <button class="copy-btn" data-copy-target="cmd-2">コピー</button>
         </div>
-
-        <div class="install-step">
-          <div class="install-step__num">STEP 03</div>
-          <div class="install-step__label">読み込み</div>
-          <div class="code">
-            <pre id="cmd-3">/reload-plugins</pre>
-            <button class="copy-btn" data-copy-target="cmd-3">コピー</button>
-          </div>
-        </div>
-
-        <details class="install-extra">
-          <summary>SSH エラーが出る場合</summary>
-          <div class="code">
-            <pre id="cmd-https">/plugin marketplace add https://github.com/sammyTI/image2-from-claude.git</pre>
-            <button class="copy-btn" data-copy-target="cmd-https">コピー</button>
-          </div>
-        </details>
-
-        <details class="install-extra">
-          <summary>Codex CLI が入ってない場合</summary>
-          <div class="code">
-            <pre id="cmd-codex">brew install openai/tap/codex
-codex login</pre>
-            <button class="copy-btn" data-copy-target="cmd-codex">コピー</button>
-          </div>
-        </details>
       </div>
+
+      <div class="install-step">
+        <div class="install-step__num">STEP 03</div>
+        <div class="install-step__label">読み込み</div>
+        <div class="code">
+          <pre id="cmd-3">/reload-plugins</pre>
+          <button class="copy-btn" data-copy-target="cmd-3">コピー</button>
+        </div>
+      </div>
+
+      <details class="install-extra">
+        <summary>SSH エラーが出る場合</summary>
+        <div class="code">
+          <pre id="cmd-https">/plugin marketplace add https://github.com/sammyTI/image2-from-claude.git</pre>
+          <button class="copy-btn" data-copy-target="cmd-https">コピー</button>
+        </div>
+      </details>
+
+      <details class="install-extra">
+        <summary>Codex CLI が入ってない場合</summary>
+        <div class="code">
+          <pre id="cmd-codex">brew install openai/tap/codex
+codex login</pre>
+          <button class="copy-btn" data-copy-target="cmd-codex">コピー</button>
+        </div>
+      </details>
     </div>
   </div>
 </section>
