@@ -41,11 +41,7 @@
       <!-- スライド（横長16:9）背面・奥にずらして配置 -->
       <div class="slide-mock">
         <div class="slide-mock__frame">
-          <img src="./samples/intro-deck/01-cover.png" alt="" class="slide-mock__img" onerror="this.style.display='none'; this.parentElement.classList.add('slide-mock__frame--empty');">
-          <div class="slide-mock__placeholder">
-            <span class="slide-mock__placeholder-label">横長16:9 スライド</span>
-            <span class="slide-mock__placeholder-hint">slides-from-codex</span>
-          </div>
+          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="" class="slide-mock__img">
         </div>
       </div>
 
@@ -168,16 +164,16 @@ codex login</pre>
         </div>
       </button>
 
-      <div class="example-card example-card--soon">
-        <div class="example-card__thumb example-card__thumb--placeholder">
-          <span>横長16:9スライド</span>
+      <button class="example-card" data-modal-open="modal-pitch">
+        <div class="example-card__thumb example-card__thumb--wide">
+          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="AYUNE ピッチデッキ 表紙" loading="lazy">
         </div>
         <div class="example-card__body">
-          <h3 class="example-card__title">スライドデッキ</h3>
-          <p class="example-card__meta">slides-from-codex · 近日公開</p>
-          <span class="example-card__cta example-card__cta--muted">準備中</span>
+          <h3 class="example-card__title">あゆね — 販売店向けピッチデッキ</h3>
+          <p class="example-card__meta">横長16:9スライド · 10枚 · 1792×1024 PNG</p>
+          <span class="example-card__cta">ポップアップで見る →</span>
         </div>
-      </div>
+      </button>
     </div>
   </div>
 </section>
@@ -227,7 +223,7 @@ codex login</pre>
   </div>
 </footer>
 
-<!-- ─── Modal ────────────────────────────────── -->
+<!-- ─── Modal: LP ────────────────────────────── -->
 <div class="modal" id="modal-ayune" hidden>
   <div class="modal__backdrop" data-modal-close></div>
   <div class="modal__shell">
@@ -237,6 +233,20 @@ codex login</pre>
     </div>
     <div class="modal__frame-wrap">
       <iframe class="modal__frame" data-modal-iframe data-src="./samples/ayune-skincare/" title="あゆね LP プレビュー"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Modal: Pitch deck ────────────────────── -->
+<div class="modal" id="modal-pitch" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__shell modal__shell--wide">
+    <div class="modal__bar">
+      <div class="modal__title">あゆね — 販売店向けピッチデッキ（10枚）</div>
+      <button class="modal__close" data-modal-close aria-label="閉じる">×</button>
+    </div>
+    <div class="modal__frame-wrap">
+      <iframe class="modal__frame" data-modal-iframe data-src="./samples/ayune-pitch/" title="あゆね ピッチデッキ プレビュー"></iframe>
     </div>
   </div>
 </div>
