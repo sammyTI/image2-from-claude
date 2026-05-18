@@ -18,6 +18,25 @@
 </head>
 <body>
 
+<!-- ─── NAV ──────────────────────────────────── -->
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a href="#top" class="nav__brand">
+      <span class="nav__brand-mark">i2c</span>
+      <span class="nav__brand-name">image2-from-claude</span>
+    </a>
+    <ul class="nav__menu">
+      <li><a href="#flow">使い方の流れ</a></li>
+      <li><a href="#install">インストール</a></li>
+      <li><a href="#example">作例</a></li>
+      <li><a href="#prompt">スラッシュコマンド</a></li>
+      <li><a href="https://github.com/sammyTI/image2-from-claude" target="_blank" rel="noopener" class="nav__menu-link--gh">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<a id="top"></a>
+
 <!-- ─── HERO (Image-based) ──────────────────── -->
 <header class="hero">
   <img src="./assets/hero-pc.png" alt="Claude Code から指示するだけで、LP もスライドも自動生成。ChatGPT サブスク内で動くから API 課金ゼロ。" class="hero__img hero__img--pc">
@@ -32,6 +51,45 @@
     </div>
   </div>
 </header>
+
+<!-- ─── FLOW (使い方の流れ) ──────────────────── -->
+<section class="section section--soft" id="flow">
+  <div class="wrap">
+    <div class="section__eyebrow">HOW IT WORKS</div>
+    <h2 class="section__title">使い方の流れ</h2>
+    <p class="section__lead">
+      Claude Code に話しかけるか、スラッシュコマンドを打つだけ。<br>
+      あとはヒアリング → 自動生成 → 引き取り、まで自動で進みます。
+    </p>
+
+    <ol class="flow">
+      <li class="flow__step">
+        <div class="flow__num">01</div>
+        <h3 class="flow__name">指示する</h3>
+        <p class="flow__desc">
+          スラッシュコマンドの後に要件を続けて伝えるのが最短。
+          参考デザインのパス・セクション構成・CTA文言などをまとめて渡せる。
+        </p>
+      </li>
+      <li class="flow__step">
+        <div class="flow__num">02</div>
+        <h3 class="flow__name">自動生成</h3>
+        <p class="flow__desc">
+          Claude Code が Codex MCP を呼び、Image 2.0 でスライス画像を生成。
+          HTML/CSS の組み立てまで自動。ChatGPT サブスク枠で動くので API 課金ゼロ。
+        </p>
+      </li>
+      <li class="flow__step">
+        <div class="flow__num">03</div>
+        <h3 class="flow__name">完成</h3>
+        <p class="flow__desc">
+          <code>lp-out/&lt;slug&gt;/</code> または <code>slides-out/&lt;slug&gt;/</code> に画像と HTML が一式保存。
+          そのままブラウザで開けば成果物が確認できる。
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
 
 <!-- ─── WHAT YOU NEED ────────────────────────── -->
 <section class="section">
@@ -119,7 +177,7 @@ codex login</pre>
 </section>
 
 <!-- ─── EXAMPLE ──────────────────────────────── -->
-<section class="section">
+<section class="section" id="example">
   <div class="wrap">
     <div class="section__eyebrow">EXAMPLE</div>
     <h2 class="section__title">作例</h2>
@@ -128,25 +186,30 @@ codex login</pre>
       <span class="hint">クリックでポップアップ表示・スクロール可能</span>
     </p>
 
-    <div class="example-grid">
+    <div class="example-grid example-grid--2col">
       <button class="example-card" data-modal-open="modal-ayune">
         <div class="example-card__thumb">
           <img src="./samples/ayune-skincare/assets/01-fv.png" alt="AYUNE スキンケアLP FV" loading="lazy">
         </div>
         <div class="example-card__body">
-          <h3 class="example-card__title">あゆね — スキンケアトライアル</h3>
-          <p class="example-card__meta">縦長スマホLP · 7セクション · 1024×1536 PNG</p>
+          <h3 class="example-card__title">スマホLP 1本</h3>
+          <p class="example-card__meta">縦長 · 7セクション · 1024×1536 PNG</p>
+          <p class="example-card__desc">あゆね — スキンケアトライアル申込LP</p>
           <span class="example-card__cta">ポップアップで見る →</span>
         </div>
       </button>
 
       <button class="example-card" data-modal-open="modal-pitch">
-        <div class="example-card__thumb example-card__thumb--wide">
-          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="AYUNE ピッチデッキ 表紙" loading="lazy">
+        <div class="example-card__thumb example-card__thumb--stack">
+          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="" loading="lazy">
+          <img src="./samples/ayune-pitch/assets/06-track-record.png" alt="" loading="lazy">
+          <img src="./samples/ayune-pitch/assets/03-product.png" alt="" loading="lazy">
+          <img src="./samples/ayune-pitch/assets/07-competitive.png" alt="" loading="lazy">
         </div>
         <div class="example-card__body">
-          <h3 class="example-card__title">あゆね — 販売店向けピッチデッキ</h3>
-          <p class="example-card__meta">横長16:9スライド · 10枚 · 1792×1024 PNG</p>
+          <h3 class="example-card__title">スライドデッキ 10枚</h3>
+          <p class="example-card__meta">横長16:9 · 10枚 · 1792×1024 PNG</p>
+          <p class="example-card__desc">あゆね — 販売店向けピッチデッキ</p>
           <span class="example-card__cta">ポップアップで見る →</span>
         </div>
       </button>
@@ -154,32 +217,95 @@ codex login</pre>
   </div>
 </section>
 
-<!-- ─── SUMMARY ──────────────────────────────── -->
-<section class="section section--summary">
-  <div class="wrap wrap--narrow">
-    <div class="section__eyebrow">SUMMARY</div>
-    <h2 class="section__title">使い方</h2>
-    <p class="summary__lead">
-      話しかけるだけで起動します。ヒアリングから生成まで自動で進みます。
+<!-- ─── PROMPT (スラッシュコマンド + 要件) ──────── -->
+<section class="section" id="prompt">
+  <div class="wrap">
+    <div class="section__eyebrow">PROMPT</div>
+    <h2 class="section__title">推奨：スラッシュコマンド + 要件</h2>
+    <p class="section__lead">
+      短いトリガー（「LP作って」など）でも動きますが、<br>
+      スラッシュコマンドの後に要件を一文で続けると、ヒアリングを最短化して一発で生成まで進みます。
     </p>
 
-    <div class="how">
-      <div class="how__row"><span class="how__kw">「LP作って」</span><span class="how__arrow">→</span><span class="how__skill">lp-from-codex</span></div>
-      <div class="how__row"><span class="how__kw">「スライド作って」</span><span class="how__arrow">→</span><span class="how__skill">slides-from-codex</span></div>
-      <div class="how__row"><span class="how__kw">「カルーセル作って」</span><span class="how__arrow">→</span><span class="how__skill">slides-from-codex（カルーセル）</span></div>
+    <div class="prompt-list">
+
+      <div class="prompt-card">
+        <div class="prompt-card__label">スマホLP</div>
+        <div class="code">
+          <pre id="prompt-ex-lp">/lp-from-codex 化粧品ブランドのトライアル申込LP、参考デザインは ~/Downloads/ref.png、CTA は「無料サンプル請求」、出力先は lp-out/skincare-trial/</pre>
+          <button class="copy-btn" data-copy-target="prompt-ex-lp">コピー</button>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card__label">ピッチデッキ・セミナー資料</div>
+        <div class="code">
+          <pre id="prompt-ex-slides">/slides-from-codex 販売店向けピッチデッキ10枚、ブランド名AYUNE、配色ベージュ+ゴールド、出力先は slides-out/ayune-pitch/</pre>
+          <button class="copy-btn" data-copy-target="prompt-ex-slides">コピー</button>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card__label">広告バナー（解像度指定）</div>
+        <div class="code">
+          <pre id="prompt-ex-banner">/slides-from-codex Instagram広告バナー、解像度1080×1080、健康食品の訴求、CTA「LINE登録で初回半額」、出力先は slides-out/health-banner/</pre>
+          <button class="copy-btn" data-copy-target="prompt-ex-banner">コピー</button>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card__label">カルーセル投稿（複数枚）</div>
+        <div class="code">
+          <pre id="prompt-ex-carousel">/slides-from-codex Xカルーセル5枚、テーマ「フリーランスが最初の1万円を稼ぐ流れ」、解像度1200×675、引きフック→ステップ4枚→保存CTA</pre>
+          <button class="copy-btn" data-copy-target="prompt-ex-carousel">コピー</button>
+        </div>
+      </div>
+
     </div>
 
-    <details class="summary__details">
-      <summary>よくあるつまずき</summary>
-      <table class="gotcha">
-        <tbody>
-          <tr><td><code>mcp__codex__codex</code> が見えない</td><td>Claude Code を再起動。<code>.mcp.json</code> の <code>codex</code> エントリ確認。</td></tr>
-          <tr><td>画像生成で API 課金が走る</td><td><code>codex login</code> で ChatGPT アカウントを選び直す。</td></tr>
-          <tr><td>Image 2.0 がレートリミット</td><td>サブスク枠の上限。少し時間を置く。</td></tr>
-          <tr><td>生成画像が 30〜100KB しかない</td><td>HTMLフォールバック疑い。本ツールは1枚目のサイズゲートで自動検知して再投します。</td></tr>
-        </tbody>
-      </table>
-    </details>
+    <p class="prompt-foot">
+      要件はざっくりでもOK。足りない情報は Claude Code が必要に応じて聞き返します。
+    </p>
+  </div>
+</section>
+
+<!-- ─── USE CASES バナー帯 ──────────────────── -->
+<section class="usecases">
+  <div class="wrap">
+    <div class="usecases__title">こんな用途で使える</div>
+    <ul class="usecases__list">
+      <li>セミナー告知LP</li>
+      <li>商品申込LP</li>
+      <li>資料請求LP</li>
+      <li>販売店向け提案書</li>
+      <li>営業資料</li>
+      <li>サービス説明スライド</li>
+      <li>Instagram カルーセル</li>
+      <li>X カルーセル</li>
+      <li>LinkedIn カルーセル</li>
+      <li>広告バナー（任意の解像度）</li>
+    </ul>
+    <div class="usecases__cta">
+      <a href="#install" class="btn">インストール</a>
+      <a href="#example" class="btn btn--outline">作例を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SUMMARY (トラブルシュート) ─────────────── -->
+<section class="section section--summary">
+  <div class="wrap wrap--narrow">
+    <div class="section__eyebrow">TROUBLESHOOTING</div>
+    <h2 class="section__title">よくあるつまずき</h2>
+
+    <table class="gotcha">
+      <tbody>
+        <tr><td><code>mcp__codex__codex</code> が見えない</td><td>Claude Code を再起動。<code>.mcp.json</code> の <code>codex</code> エントリを確認。</td></tr>
+        <tr><td>画像生成で API 課金が走る</td><td><code>codex login</code> で ChatGPT アカウントを選び直す。</td></tr>
+        <tr><td>Image 2.0 がレートリミット</td><td>サブスク枠の上限。少し時間を置く。</td></tr>
+        <tr><td>生成画像が 30〜100KB しかない</td><td>HTML フォールバック疑い。本ツールは1枚目のサイズゲートで自動検知して再投します。</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
