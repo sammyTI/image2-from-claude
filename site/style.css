@@ -131,8 +131,8 @@ code {
 @media (max-width: 720px) {
   .nav__inner { padding: 10px 16px; }
   .nav__brand-name { display: none; }
-  .nav__menu { gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .nav__menu::-webkit-scrollbar { display: none; }
+  .nav__menu { gap: 4px; }
+  .nav__menu li.nav__menu--collapse { display: none; }
   .nav__menu a { padding: 6px 10px; font-size: 12px; white-space: nowrap; }
 }
 
@@ -653,6 +653,17 @@ code {
   padding-right: 88px;
   overflow-x: auto;
 }
+@media (max-width: 640px) {
+  .code {
+    padding: 14px 16px 50px;
+  }
+  .code .copy-btn {
+    top: auto;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 14px;
+  }
+}
 .code pre {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -751,59 +762,9 @@ code {
 .example-card__thumb--wide {
   aspect-ratio: 16 / 9;
 }
-/* LP の縦長サムネ高さを揃える基準 */
+/* 縦長サムネ用（LP / スライドデッキ 両方） */
 .example-card__thumb--lp {
   aspect-ratio: 2 / 3;
-}
-/* スライド5枚を重ねて見せる（高さは LP と同じ 2:3） */
-.example-card__thumb--slidestack {
-  aspect-ratio: 2 / 3;
-  background: linear-gradient(135deg, #f5f3ee 0%, #fafaf8 100%);
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slidestack {
-  position: relative;
-  width: 88%;
-  aspect-ratio: 16 / 9;
-}
-.slidestack__item {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  background: #fff;
-}
-/* 10枚スタック: 1枚目を一番手前、10枚目を一番奥に */
-.slidestack__item--10 { transform: translateY(-108px) rotate(-4.5deg);  z-index: 1;  opacity: 0.55; }
-.slidestack__item--9  { transform: translateY(-84px)  rotate(-3.5deg);  z-index: 2;  opacity: 0.65; }
-.slidestack__item--8  { transform: translateY(-60px)  rotate(-2.5deg);  z-index: 3;  opacity: 0.75; }
-.slidestack__item--7  { transform: translateY(-36px)  rotate(-1.5deg);  z-index: 4;  opacity: 0.85; }
-.slidestack__item--6  { transform: translateY(-12px)  rotate(-0.5deg);  z-index: 5;  opacity: 0.95; }
-.slidestack__item--5  { transform: translateY(12px)   rotate(0.5deg);   z-index: 6; }
-.slidestack__item--4  { transform: translateY(36px)   rotate(1.5deg);   z-index: 7; }
-.slidestack__item--3  { transform: translateY(60px)   rotate(2.5deg);   z-index: 8; }
-.slidestack__item--2  { transform: translateY(84px)   rotate(3.5deg);   z-index: 9; }
-.slidestack__item--1  { transform: translateY(108px)  rotate(4.5deg);   z-index: 10; }
-@media (max-width: 720px) {
-  .slidestack__item--10 { transform: translateY(-80px)  rotate(-4.5deg); }
-  .slidestack__item--9  { transform: translateY(-62px)  rotate(-3.5deg); }
-  .slidestack__item--8  { transform: translateY(-44px)  rotate(-2.5deg); }
-  .slidestack__item--7  { transform: translateY(-26px)  rotate(-1.5deg); }
-  .slidestack__item--6  { transform: translateY(-8px)   rotate(-0.5deg); }
-  .slidestack__item--5  { transform: translateY(8px)    rotate(0.5deg); }
-  .slidestack__item--4  { transform: translateY(26px)   rotate(1.5deg); }
-  .slidestack__item--3  { transform: translateY(44px)   rotate(2.5deg); }
-  .slidestack__item--2  { transform: translateY(62px)   rotate(3.5deg); }
-  .slidestack__item--1  { transform: translateY(80px)   rotate(4.5deg); }
 }
 .example-card__thumb img {
   width: 100%;
@@ -1065,8 +1026,7 @@ code {
 
 /* ═════ Responsive fine-tuning ═══════════════════ */
 @media (max-width: 640px) {
-  .hero { padding: 64px 0 56px; }
-  .hero__title { font-size: 32px; }
+  .hero { padding-top: 56px; padding-bottom: 0; }
   .section { padding: 64px 0; }
   .wrap { padding: 0 20px; }
   .need__item, .install-card { padding: 24px; }
