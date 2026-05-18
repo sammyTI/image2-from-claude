@@ -37,10 +37,22 @@
 
 <a id="top"></a>
 
-<!-- ─── HERO (Image-based) ──────────────────── -->
+<!-- ─── HERO (Image-based + 右側に実画像のスマホ&スライド) ─── -->
 <header class="hero">
   <img src="./assets/hero-pc.png" alt="Claude Code から指示するだけで、LP もスライドも自動生成。ChatGPT サブスク内で動くから API 課金ゼロ。" class="hero__img hero__img--pc">
   <img src="./assets/hero-sp.png" alt="" class="hero__img hero__img--sp" aria-hidden="true">
+
+  <div class="hero__mocks" aria-hidden="true">
+    <div class="hero-slide">
+      <img src="./samples/ayune-pitch/assets/01-cover.png" alt="">
+    </div>
+    <div class="hero-phone">
+      <div class="hero-phone__notch"></div>
+      <div class="hero-phone__screen">
+        <img src="./samples/ayune-skincare/assets/01-fv.png" alt="">
+      </div>
+    </div>
+  </div>
 
   <div class="hero__overlay">
     <div class="wrap">
@@ -64,22 +76,39 @@
 
     <ol class="flow">
       <li class="flow__step">
+        <div class="flow__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
         <div class="flow__num">01</div>
         <h3 class="flow__name">指示する</h3>
         <p class="flow__desc">
-          スラッシュコマンドの後に要件を続けて伝えるのが最短。
-          参考デザインのパス・セクション構成・CTA文言などをまとめて渡せる。
+          スラッシュコマンドの後にざっくり一言で OK。
+          参考デザインのパスや CTA 文言など、必要なら追加情報も一文で渡せる。
         </p>
       </li>
       <li class="flow__step">
+        <div class="flow__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08l4.24-4.24"/>
+          </svg>
+        </div>
         <div class="flow__num">02</div>
         <h3 class="flow__name">自動生成</h3>
         <p class="flow__desc">
           Claude Code が Codex MCP を呼び、Image 2.0 でスライス画像を生成。
-          HTML/CSS の組み立てまで自動。ChatGPT サブスク枠で動くので API 課金ゼロ。
+          HTML / CSS の組み立てまで全自動で進む。
         </p>
       </li>
       <li class="flow__step">
+        <div class="flow__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
         <div class="flow__num">03</div>
         <h3 class="flow__name">完成</h3>
         <p class="flow__desc">
@@ -111,8 +140,52 @@
       <div class="need__item">
         <div class="need__num">03</div>
         <div class="need__name">Codex CLI</div>
-        <div class="need__desc">Image 2.0 を呼ぶための踏み台。<code>brew install openai/tap/codex</code></div>
+        <div class="need__desc">Image 2.0 を呼ぶための踏み台。<br><code>brew install openai/tap/codex</code></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXAMPLE ──────────────────────────────── -->
+<section class="section" id="example">
+  <div class="wrap">
+    <div class="section__eyebrow">EXAMPLE</div>
+    <h2 class="section__title">作例</h2>
+    <p class="section__lead">
+      実際に lp-from-codex / slides-from-codex で生成した成果物。<br>
+      <span class="hint">クリックでポップアップ表示・スクロール可能</span>
+    </p>
+
+    <div class="example-grid example-grid--2col">
+      <button class="example-card" data-modal-open="modal-ayune">
+        <div class="example-card__thumb example-card__thumb--lp">
+          <img src="./samples/ayune-skincare/assets/01-fv.png" alt="AYUNE スキンケアLP FV" loading="lazy">
+        </div>
+        <div class="example-card__body">
+          <h3 class="example-card__title">スマホLP 1本</h3>
+          <p class="example-card__meta">縦長 · 7セクション · 1024×1536 PNG</p>
+          <p class="example-card__desc">あゆね — スキンケアトライアル申込LP</p>
+          <span class="example-card__cta">ポップアップで見る →</span>
+        </div>
+      </button>
+
+      <button class="example-card" data-modal-open="modal-pitch">
+        <div class="example-card__thumb example-card__thumb--slidestack">
+          <div class="slidestack">
+            <img class="slidestack__item slidestack__item--1" src="./samples/ayune-pitch/assets/01-cover.png" alt="" loading="lazy">
+            <img class="slidestack__item slidestack__item--2" src="./samples/ayune-pitch/assets/06-track-record.png" alt="" loading="lazy">
+            <img class="slidestack__item slidestack__item--3" src="./samples/ayune-pitch/assets/03-product.png" alt="" loading="lazy">
+            <img class="slidestack__item slidestack__item--4" src="./samples/ayune-pitch/assets/04-formula.png" alt="" loading="lazy">
+            <img class="slidestack__item slidestack__item--5" src="./samples/ayune-pitch/assets/07-competitive.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="example-card__body">
+          <h3 class="example-card__title">スライドデッキ 10枚</h3>
+          <p class="example-card__meta">横長16:9 · 10枚 · 1792×1024 PNG</p>
+          <p class="example-card__desc">あゆね — 販売店向けピッチデッキ</p>
+          <span class="example-card__cta">ポップアップで見る →</span>
+        </div>
+      </button>
     </div>
   </div>
 </section>
@@ -173,46 +246,22 @@ codex login</pre>
         </div>
       </details>
     </div>
-  </div>
-</section>
 
-<!-- ─── EXAMPLE ──────────────────────────────── -->
-<section class="section" id="example">
-  <div class="wrap">
-    <div class="section__eyebrow">EXAMPLE</div>
-    <h2 class="section__title">作例</h2>
-    <p class="section__lead">
-      実際に lp-from-codex / slides-from-codex で生成した成果物。<br>
-      <span class="hint">クリックでポップアップ表示・スクロール可能</span>
-    </p>
-
-    <div class="example-grid example-grid--2col">
-      <button class="example-card" data-modal-open="modal-ayune">
-        <div class="example-card__thumb">
-          <img src="./samples/ayune-skincare/assets/01-fv.png" alt="AYUNE スキンケアLP FV" loading="lazy">
-        </div>
-        <div class="example-card__body">
-          <h3 class="example-card__title">スマホLP 1本</h3>
-          <p class="example-card__meta">縦長 · 7セクション · 1024×1536 PNG</p>
-          <p class="example-card__desc">あゆね — スキンケアトライアル申込LP</p>
-          <span class="example-card__cta">ポップアップで見る →</span>
-        </div>
-      </button>
-
-      <button class="example-card" data-modal-open="modal-pitch">
-        <div class="example-card__thumb example-card__thumb--stack">
-          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="" loading="lazy">
-          <img src="./samples/ayune-pitch/assets/06-track-record.png" alt="" loading="lazy">
-          <img src="./samples/ayune-pitch/assets/03-product.png" alt="" loading="lazy">
-          <img src="./samples/ayune-pitch/assets/07-competitive.png" alt="" loading="lazy">
-        </div>
-        <div class="example-card__body">
-          <h3 class="example-card__title">スライドデッキ 10枚</h3>
-          <p class="example-card__meta">横長16:9 · 10枚 · 1792×1024 PNG</p>
-          <p class="example-card__desc">あゆね — 販売店向けピッチデッキ</p>
-          <span class="example-card__cta">ポップアップで見る →</span>
-        </div>
-      </button>
+    <div class="install-note" role="note">
+      <div class="install-note__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <div class="install-note__body">
+        <div class="install-note__title">注意：Codex（ChatGPT サブスク）の利用枠を消費します</div>
+        <p>
+          このキットは ChatGPT サブスク内で動きますが、生成のたびに Codex の使用枠を消費します。<br>
+          無料ではなく「サブスクの枠を使う」点にご注意ください。1回の生成で大きく枠を使うこともあるので、Plus より Pro 推奨です。
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -221,21 +270,23 @@ codex login</pre>
 <section class="section" id="prompt">
   <div class="wrap">
     <div class="section__eyebrow">PROMPT</div>
-    <h2 class="section__title">推奨：スラッシュコマンド + 要件</h2>
+    <h2 class="section__title">推奨：ざっくり指示でOK</h2>
     <p class="section__lead">
-      要件はざっくりでも詳細でもOK。<br>
+      スラッシュコマンドの後に、ざっくり一言添えるだけで起動します。<br>
       足りない情報は Claude Code が必要なぶんだけヒアリングして埋めてくれます。
     </p>
 
     <div class="prompt-hero">
       <div class="prompt-hero__main">
-        <div class="prompt-hero__icon">⚡</div>
+        <div class="prompt-hero__icon">💬</div>
         <div class="prompt-hero__text">
-          <div class="prompt-hero__title">要件をスラッシュコマンドに一文で続けると、一発で生成まで進む</div>
+          <div class="prompt-hero__title">
+            <code>/lp-from-codex 化粧品LP作って</code><br>
+            このくらいざっくりで大丈夫
+          </div>
           <div class="prompt-hero__desc">
-            ヒアリングを最短化できるので、最短ルートで完成。<br>
-            もちろん <code>/lp-from-codex 化粧品LP作って</code> のようにざっくり指示するだけでもOK。
-            足りない情報は Claude Code が必要なぶんだけ聞き返してくれます。
+            目的・ターゲット・参考デザイン・コピーなど、必要な情報は Claude Code が順番にヒアリングして埋めてくれます。<br>
+            指示文を作り込む必要なし、思いついた瞬間に投げてOK。
           </div>
         </div>
       </div>
@@ -397,6 +448,13 @@ document.querySelectorAll('[data-modal-open]').forEach(btn => {
     if (iframe && !iframe.src) iframe.src = iframe.dataset.src;
     modal.hidden = false;
     body.style.overflow = 'hidden';
+    if (iframe) {
+      const focusInside = () => {
+        try { iframe.contentWindow && iframe.contentWindow.focus(); } catch(e) {}
+      };
+      iframe.addEventListener('load', focusInside, { once: true });
+      setTimeout(focusInside, 250);
+    }
   });
 });
 document.querySelectorAll('[data-modal-close]').forEach(el => {
