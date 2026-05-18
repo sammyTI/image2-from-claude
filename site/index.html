@@ -12,40 +12,83 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-<!-- ─── HERO ─────────────────────────────────── -->
+<!-- ─── HERO (Dark) ──────────────────────────── -->
 <header class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__glow hero__glow--g"></div>
+    <div class="hero__glow hero__glow--y"></div>
+    <div class="hero__grid"></div>
+  </div>
+
   <div class="wrap hero__layout">
     <div class="hero__text">
-      <div class="hero__eyebrow">CLAUDE CODE PLUGIN MARKETPLACE</div>
+      <div class="hero__badge-row">
+        <span class="hero__pill">CLAUDE CODE PLUGIN MARKETPLACE</span>
+        <span class="hero__badge">2スキル<br>同梱</span>
+      </div>
+
+      <div class="hero__eyebrow-line">隠された Codex の完全活用</div>
+
       <h1 class="hero__title">
-        Claude Code から Codex 経由で<br>
-        <span class="mono">Image 2.0</span> を呼ぶ。
+        <span class="hero__title-row">
+          <span class="hero__title-jp">Claude Code</span>
+          <span class="hero__title-x">から</span>
+        </span>
+        <span class="hero__title-row">
+          <span class="hero__title-jp">Codex 経由で</span>
+        </span>
+        <span class="hero__title-row hero__title-row--hl">
+          <span class="hero__title-jp">Image 2.0</span>
+          <span class="hero__title-x">を呼ぶ</span>
+        </span>
       </h1>
+
       <p class="hero__sub">
-        横長スライドも、縦長スマホLPも、<br>
-        Claude Code を抜けずに量産。<br>
+        横長スライドも、縦長スマホLPも、Claude Code を抜けずに量産。<br>
         ChatGPT サブスク枠で動くから API 課金はゼロ。
       </p>
+
+      <ul class="hero__benefits">
+        <li class="hero__benefit">
+          <span class="hero__benefit-num">1</span>
+          <span class="hero__benefit-text">API 課金ゼロでスライド量産</span>
+        </li>
+        <li class="hero__benefit">
+          <span class="hero__benefit-num">2</span>
+          <span class="hero__benefit-text">PC を抜けずに Image 2.0 を実行</span>
+        </li>
+        <li class="hero__benefit">
+          <span class="hero__benefit-num">3</span>
+          <span class="hero__benefit-text">高品質 LP / デッキを一撃生成</span>
+        </li>
+      </ul>
+
       <div class="hero__actions">
-        <a href="#install" class="btn">使い方を見る</a>
-        <a href="https://github.com/sammyTI/image2-from-claude" class="btn btn--outline" target="_blank" rel="noopener">GitHub で見る</a>
+        <a href="#install" class="btn">30秒で使い始める</a>
+        <a href="https://github.com/sammyTI/image2-from-claude" class="btn btn--ghost-dark" target="_blank" rel="noopener">GitHub で見る</a>
       </div>
     </div>
 
     <div class="hero__visual" aria-hidden="true">
-      <!-- スライド（横長16:9）背面・奥にずらして配置 -->
-      <div class="slide-mock">
-        <div class="slide-mock__frame">
-          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="" class="slide-mock__img">
+      <!-- スライド3枚を扇形に重ねる（奥から順） -->
+      <div class="slide-stack">
+        <div class="slide-stack__item slide-stack__item--back">
+          <img src="./samples/ayune-pitch/assets/06-track-record.png" alt="">
+        </div>
+        <div class="slide-stack__item slide-stack__item--mid">
+          <img src="./samples/ayune-pitch/assets/03-product.png" alt="">
+        </div>
+        <div class="slide-stack__item slide-stack__item--front">
+          <img src="./samples/ayune-pitch/assets/01-cover.png" alt="">
         </div>
       </div>
 
-      <!-- スマホLPモック（縦長）前面・メイン -->
+      <!-- スマホLP モック・最前面 -->
       <div class="phone-mock">
         <div class="phone-mock__notch"></div>
         <div class="phone-mock__screen">
