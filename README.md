@@ -148,4 +148,4 @@ MIT License. © 2026 Sammy Okamura
 岡村さみー（[@sammyTI](https://x.com/sammyTI)）
 
 - note: [@sammyo_official](https://note.com/bold_daisy957)
-- Substack: [@dxai1](https://substack.com/@dxai1)
+- Substack: [@sammyophoto](https://substack.com/@sammyophoto)
