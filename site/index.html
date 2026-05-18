@@ -227,64 +227,58 @@ codex login</pre>
       足りない情報は Claude Code が必要なぶんだけヒアリングして埋めてくれます。
     </p>
 
-    <div class="prompt-tips">
-      <div class="prompt-tip">
-        <div class="prompt-tip__label">ざっくり版</div>
-        <div class="prompt-tip__body">
-          <code>/lp-from-codex 化粧品LP作って</code>
-          <span class="prompt-tip__arrow">→</span>
-          目的・ターゲット・参考デザイン・コピーをヒアリングで詰めてくれる
-        </div>
-      </div>
-      <div class="prompt-tip">
-        <div class="prompt-tip__label">詳細版（下記の実例）</div>
-        <div class="prompt-tip__body">
-          要件をスラッシュコマンドに続けて一文で渡す
-          <span class="prompt-tip__arrow">→</span>
-          ヒアリングを最短化して一発で生成まで進む
+    <div class="prompt-hero">
+      <div class="prompt-hero__main">
+        <div class="prompt-hero__icon">⚡</div>
+        <div class="prompt-hero__text">
+          <div class="prompt-hero__title">要件をスラッシュコマンドに一文で続けると、一発で生成まで進む</div>
+          <div class="prompt-hero__desc">
+            ヒアリングを最短化できるので、最短ルートで完成。<br>
+            もちろん <code>/lp-from-codex 化粧品LP作って</code> のようにざっくり指示するだけでもOK。
+            足りない情報は Claude Code が必要なぶんだけ聞き返してくれます。
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="prompt-list">
+    <details class="prompt-toggle">
+      <summary>詳細なプロンプト例を見る（4種）</summary>
+      <div class="prompt-list">
 
-      <div class="prompt-card">
-        <div class="prompt-card__label">スマホLP</div>
-        <div class="code">
-          <pre id="prompt-ex-lp">/lp-from-codex 化粧品ブランドのトライアル申込LP、参考デザインは ~/Downloads/ref.png、CTA は「無料サンプル請求」、出力先は lp-out/skincare-trial/</pre>
-          <button class="copy-btn" data-copy-target="prompt-ex-lp">コピー</button>
+        <div class="prompt-card">
+          <div class="prompt-card__label">スマホLP</div>
+          <div class="code">
+            <pre id="prompt-ex-lp">/lp-from-codex 化粧品ブランドのトライアル申込LP、参考デザインは ~/Downloads/ref.png、CTA は「無料サンプル請求」、出力先は lp-out/skincare-trial/</pre>
+            <button class="copy-btn" data-copy-target="prompt-ex-lp">コピー</button>
+          </div>
         </div>
-      </div>
 
-      <div class="prompt-card">
-        <div class="prompt-card__label">ピッチデッキ・セミナー資料</div>
-        <div class="code">
-          <pre id="prompt-ex-slides">/slides-from-codex 販売店向けピッチデッキ10枚、ブランド名AYUNE、配色ベージュ+ゴールド、出力先は slides-out/ayune-pitch/</pre>
-          <button class="copy-btn" data-copy-target="prompt-ex-slides">コピー</button>
+        <div class="prompt-card">
+          <div class="prompt-card__label">ピッチデッキ・セミナー資料</div>
+          <div class="code">
+            <pre id="prompt-ex-slides">/slides-from-codex 販売店向けピッチデッキ10枚、ブランド名AYUNE、配色ベージュ+ゴールド、出力先は slides-out/ayune-pitch/</pre>
+            <button class="copy-btn" data-copy-target="prompt-ex-slides">コピー</button>
+          </div>
         </div>
-      </div>
 
-      <div class="prompt-card">
-        <div class="prompt-card__label">広告バナー（解像度指定）</div>
-        <div class="code">
-          <pre id="prompt-ex-banner">/slides-from-codex Instagram広告バナー、解像度1080×1080、健康食品の訴求、CTA「LINE登録で初回半額」、出力先は slides-out/health-banner/</pre>
-          <button class="copy-btn" data-copy-target="prompt-ex-banner">コピー</button>
+        <div class="prompt-card">
+          <div class="prompt-card__label">広告バナー（解像度指定）</div>
+          <div class="code">
+            <pre id="prompt-ex-banner">/slides-from-codex Instagram広告バナー、解像度1080×1080、健康食品の訴求、CTA「LINE登録で初回半額」、出力先は slides-out/health-banner/</pre>
+            <button class="copy-btn" data-copy-target="prompt-ex-banner">コピー</button>
+          </div>
         </div>
-      </div>
 
-      <div class="prompt-card">
-        <div class="prompt-card__label">カルーセル投稿（複数枚）</div>
-        <div class="code">
-          <pre id="prompt-ex-carousel">/slides-from-codex Xカルーセル5枚、テーマ「フリーランスが最初の1万円を稼ぐ流れ」、解像度1200×675、引きフック→ステップ4枚→保存CTA</pre>
-          <button class="copy-btn" data-copy-target="prompt-ex-carousel">コピー</button>
+        <div class="prompt-card">
+          <div class="prompt-card__label">カルーセル投稿（複数枚）</div>
+          <div class="code">
+            <pre id="prompt-ex-carousel">/slides-from-codex Xカルーセル5枚、テーマ「フリーランスが最初の1万円を稼ぐ流れ」、解像度1200×675、引きフック→ステップ4枚→保存CTA</pre>
+            <button class="copy-btn" data-copy-target="prompt-ex-carousel">コピー</button>
+          </div>
         </div>
+
       </div>
-
-    </div>
-
-    <p class="prompt-foot">
-      要件はざっくりでもOK。足りない情報は Claude Code が必要に応じて聞き返します。
-    </p>
+    </details>
   </div>
 </section>
 
