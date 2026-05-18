@@ -143,17 +143,14 @@ code {
   background: var(--bg);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+  padding-top: 64px; /* nav 固定の高さぶん押し下げ */
 }
 .hero__img {
   width: 100%;
   height: auto;
   display: block;
-}
-/* PCでは画像の上を少し見切れさせてナビと重なる演出 */
-@media (min-width: 721px) {
-  .hero__img--pc {
-    margin-top: -28px;
-  }
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .hero__img--pc { display: block; }
 .hero__img--sp { display: none; }
@@ -246,13 +243,16 @@ code {
 .hero__overlay .wrap { pointer-events: auto; }
 .hero__cta-area {
   display: flex;
-  gap: 12px;
+  gap: clamp(8px, 1vw, 14px);
   flex-wrap: wrap;
   justify-content: center;
 }
+.hero__cta-area .btn {
+  padding: clamp(10px, 1.1vw, 16px) clamp(18px, 2.2vw, 34px);
+  font-size: clamp(12px, 1vw, 15px);
+}
 @media (max-width: 720px) {
   .hero__overlay { bottom: 5%; }
-  .hero__cta-area .btn { padding: 12px 22px; font-size: 14px; }
 }
 
 
